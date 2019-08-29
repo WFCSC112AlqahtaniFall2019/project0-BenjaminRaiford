@@ -1,8 +1,8 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
     int a1; //first equation, first coefficient
     int b1; //first equation, second coefficient
     int answer1; //first equation, answer
@@ -11,26 +11,33 @@ int main() {
     int b2; //second equation, second coefficient
     int answer2; //second equation, answer
 
+    string tmpString; //receive
+
     /*
      * below, receive user input
      * FIX: if needed, find a way to take in whole line and parse coefficients
-    */
+     */
 
+    cout << "An equation can be represented in the form ax + by = c" << endl;
+    cout << "Enter the coefficients of your first equation in the format: a b c" << endl;
     cin >> a1;
     cin >> b1;
     cin >> answer1;
+    getline(cin, tmpString); //added at SRN's suggestion to make input quicker and more intuitive
 
+    cout << "Enter the coefficients of your second equation in the format: a b c" << endl;
     cin >> a2;
     cin >> b2;
     cin >> answer2;
+    getline(cin, tmpString);
 
-//  for loop that checks each x and y number
+    //for loop that checks each x and y number
     int x; //x variable incrementing
     int y; //y variable incrementing
 
     for(x = -10; x < 11; x++){
         for (y = -10; y < 11; y++){
-            if (((a1 * x) + (b1 * y) == answer1) && ((a2 * x) + (b2 * y) == answer2)){
+            if (((a1 * x) + (b1 * y) == answer1) && ((a2 * x) + (b2 * y) == answer2)){ //are both equations satisfied?
                 cout << "x: " << x << endl;
                 cout << "y: " << y << endl;
                 return 0;
